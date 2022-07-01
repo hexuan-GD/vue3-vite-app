@@ -1,0 +1,53 @@
+{
+    "name": "vue3-vite-app",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc --noEmit && vite build",
+        "preview": "vite preview",
+        "lint": "eslint --ext .js,.vue,.ts src",
+        "lint:fix": "npx eslint ./src/**/*.vue --fix",
+        "stylelint": "npx stylelint --aei .vue src",
+        "stylint:fix": "npx stylelint ./src/**/*.vue --fix"
+    },
+    "dependencies": {
+        "axios": "^0.27.2",
+        "pinia": "^2.0.14",
+        "vue": "^3.2.25",
+        "vue-router": "^4.0.16"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.30.0",
+        "@typescript-eslint/parser": "^5.30.0",
+        "@vitejs/plugin-vue": "^2.3.3",
+        "eslint": "^8.18.0",
+        "eslint-plugin-vue": "^9.1.1",
+        "husky": "^4.3.8",
+        "lint-staged": "^13.0.3",
+        "postcss-html": "^1.4.1",
+        "sass": "^1.53.0",
+        "stylelint": "^14.9.1",
+        "stylelint-config-standard-scss": "^4.0.0",
+        "stylelint-scss": "^4.2.0",
+        "typescript": "^4.5.4",
+        "unplugin-auto-import": "^0.9.2",
+        "unplugin-vue-components": "^0.20.1",
+        "vite": "^2.9.9",
+        "vue-tsc": "^0.34.7"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{ts,vue}": [
+            "eslint --fix"
+        ],
+        "*.vue": [
+            "stylelint --fix  --custom-syntax postcss-html"
+        ]
+    }
+}
